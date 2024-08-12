@@ -9,13 +9,25 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import './index.css';
-import App from './routes/App.tsx';
+import App from './pages/App.tsx';
+import EnterpriseMode from './pages/EnterpriseMode.tsx';
+import Home from './pages/Home.tsx';
+import LogIn from './pages/LogIn.tsx';
+import ProductSimple from './pages/ProductSimple.tsx';
+import UserMode from './pages/UserMode.tsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<App />}>
-      {/* <Route path="login" element={<Login/>} />*/}
-    </Route>
+    <>
+      <Route path="/" element={<App />}>
+        <Route path="home" element={<Home />} />
+        <Route path="user/:profile" element={<UserMode />} />
+        <Route path="enterprise/:profile" element={<EnterpriseMode />} />
+        <Route path="product/:productname" element={<ProductSimple />} />
+      </Route>
+      <Route path="login" element={<LogIn />} />
+      <Route path="register" element={<LogIn />} />
+    </>
   )
 )
 
