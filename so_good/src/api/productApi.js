@@ -43,4 +43,4 @@ const EditarProductosId = async () => {
     console.log(error);
   }
 };
-EditarProductosId();
+//EditarProductosId();
