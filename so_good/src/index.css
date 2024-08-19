@@ -1,7 +1,19 @@
 :root {
+    /* Brand Color System */
+    --brand-primary: #B5E2FA;
 }
 
-*{
+body, .radix-themes{
+    background-color: hsla(210.00000000000043, 25%, 98%, 1);
+    background-image: radial-gradient(circle at -54% 222%, hsla(219.99999999999994, 0%, 100%, 1) 1%, transparent 81%), radial-gradient(circle at -54% 222%, hsla(219.99999999999994, 0%, 100%, 1) 1%, transparent 81%), radial-gradient(circle at 26% 169%, hsla(219.9999999999999, 67%, 78%, 1) 1%, transparent 59%), radial-gradient(circle at 148% 223%, hsla(23.513513513513523, 90%, 83%, 1) 5%, transparent 65%);
+    background-blend-mode: normal, normal, normal, normal;
+}
+
+* {
     margin: 0;
     padding: 0;
+}
+
+li {
+    list-style: none;
 }

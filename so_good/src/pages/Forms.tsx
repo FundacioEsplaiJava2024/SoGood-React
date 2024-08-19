@@ -5,7 +5,7 @@ function Forms() {
   
   return (
     <>
-      <Header/>
+      <Header navType="forms"/>
       <Outlet/>
     </>
   )

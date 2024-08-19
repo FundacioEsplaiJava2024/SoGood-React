@@ -8,10 +8,10 @@ function LogIn() {
             <Tabs.Root className="TabsRoot" defaultValue="tab1">
                 <Tabs.List className="TabsList" aria-label="Manage your account">
                     <Tabs.Trigger className="TabsTrigger" value="tab1">
-                        Usuario
+                        Regístrate
                     </Tabs.Trigger>
                     <Tabs.Trigger className="TabsTrigger" value="tab2">
-                        Empresa
+                        Inicia Sesión
                     </Tabs.Trigger>
                 </Tabs.List>
                 <Tabs.Content className="TabsContent" value="tab1">
@@ -51,6 +51,7 @@ function LogIn() {
                     </div>
                 </Tabs.Content>
             </Tabs.Root>
+            <span className='copyright'>© SoGood</span>
         </section>
     )
 }
