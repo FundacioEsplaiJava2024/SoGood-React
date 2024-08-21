@@ -39,7 +39,7 @@ const Header: React.FC<HeaderProps> = ({ navType }) => {
         opacity: 1;
     }
     `;
-    
+
     const HeaderWrapper = styled.header<HeaderWrapperProps>`
         display: flex;
         height: 60px;
@@ -78,8 +78,16 @@ const AppNav = () => {
     return (
         <nav>
             <ul>
-                <li>Perfil</li>
-                <li>Configuración</li>
+                <li>
+                    <Link to="">
+                        Perfil
+                    </Link>
+                </li>
+                <li>
+                    <Link to="">
+                        Configuración
+                    </Link>
+                </li>
             </ul>
         </nav>
     );
@@ -89,7 +97,16 @@ const FormsNav = () => {
     return (
         <nav>
             <ul>
-                <li>Acceso Empresas</li>
+                <li>
+                    <Link to="/bussines">
+                        Acceso Empresas
+                    </Link>
+                </li>
+                <li>
+                    <Link to="/hello-sogood">
+                        Acceso Empresas
+                    </Link>
+                </li>
             </ul>
         </nav>
     );
