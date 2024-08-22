@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import AddForm from '../components/AddForm';
+import Slider from "../components/Slider";
 
 function EnterpriseMode() {
 
@@ -21,6 +22,7 @@ function EnterpriseMode() {
     `
 
     const ImageWrapper = styled.div`
+    width: 49.9%;
 
     `
 
@@ -36,10 +38,11 @@ function EnterpriseMode() {
             </HeroName>
             <AddProductWrapper>
                 <ImageWrapper>
-                    <Image src="../public/food-bk.jpg"/>
+                    {/* <DropZone/> */}
                 </ImageWrapper>
                 <AddForm />
             </AddProductWrapper>
+            <Slider />
         </>
     )
 }
