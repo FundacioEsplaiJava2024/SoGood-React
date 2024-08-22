@@ -16,6 +16,7 @@ function LogIn() {
         console.log("FORM DATA", formData)
 
         // here call the API to signup/login
+       
     };
 
     return (

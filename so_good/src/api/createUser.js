@@ -13,4 +13,4 @@ const API_URL = "http://localhost:8442";
     password: "123456"
   }
   
-  CreateUser(API_URL, body_prueba)
+  //CreateUser(API_URL, body_prueba)
