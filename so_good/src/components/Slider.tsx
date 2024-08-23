@@ -9,7 +9,21 @@ interface SliderProps {
     price: number,
 }
 
-const Slider = () => {
+interface Product {
+    id: number;
+    imgUrl: string;
+    productName: string;
+    description: string;
+    direction: string;
+    quantity: number;
+    price: number;
+}
+
+interface Slider{
+    data: Product[];
+}
+
+const Slider: React.FC<Slider> = ({ data }) => {
 
     const products = [
         {
@@ -79,7 +93,7 @@ const Slider = () => {
                 Categorie
             </Heading>
             <SliderWrapper>
-                {products.map((product) => (
+                {data.map((product) => (
                     <SliderItem
                         key={product.id}
                         imgSrc={product.imgUrl}

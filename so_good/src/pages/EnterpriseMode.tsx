@@ -34,7 +34,7 @@ function EnterpriseMode() {
     return (
         <>
             <HeroName>
-                <h1>Bienvenidx {profile}</h1>
+                <h1>Hola {profile}</h1>
             </HeroName>
             <AddProductWrapper>
                 <ImageWrapper>
@@ -42,7 +42,7 @@ function EnterpriseMode() {
                 </ImageWrapper>
                 <AddForm />
             </AddProductWrapper>
-            <Slider />
+           {/* <Slider />*/}
         </>
     )
 }
