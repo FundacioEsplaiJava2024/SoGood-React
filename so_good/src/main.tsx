@@ -18,6 +18,7 @@ import ProductSimple from './pages/ProductSimple.tsx';
 import Register from './pages/Register.tsx';
 import UserMode from './pages/UserMode.tsx';
 
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>

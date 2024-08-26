@@ -1,34 +1,48 @@
 import { Button, Heading, Select, Text } from "@radix-ui/themes";
 import styled from "styled-components";
 import LocationIcon from '../components/Icons';
+import { useEffect, useState } from "react";
+import axios, { AxiosResponse } from "axios";
+import { useParams } from 'react-router-dom';  // Importa useParams
+
+interface Product {
+    
+    imgUrl: string;
+    productName: string;
+    enterpriseUser: string;
+    description: string;
+    direction: string;
+    quantity: number;
+    price: number;
+    category: string;
+}
 
 function ProductSimple() {
+    const { id } = useParams<{ id: string }>();  // Captura el ID desde la URL
+    const [product, setProduct] = useState<Product | null>(null);
+    const baseUrl = "http://localhost:8442/sogood";
 
-    const infoData = {
-        id: 1,
-        productName: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio earum sed delectus tempora voluptatum? Voluptates.",
-        enterpriseUser: "pans",
-        category: "carne",
-        quantity: "10",
-        direction: "c/ x num 45",
-        price: "$10.00",
-    }
+    useEffect(() => {
+        const getProductById = async () => {
+            try {
+                // Cambia la solicitud para incluir el ID en la URL
+                const response: AxiosResponse<Product> = await axios.get(`${baseUrl}/packs/${1}`);
+                setProduct(response.data)
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        getProductById();
+    }, [id]);  // El useEffect se ejecuta cuando cambia el ID
 
     const numbers = [ 
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-    ]
+        "1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
+    ];
 
-    // const { productname } = useParams()
+    // Renderizado condicional para manejar la carga de datos
+    if (!product) {
+        return <div>Loading...</div>;
+    }
 
     const ProductWrapper = styled.section`
         display: flex;
@@ -37,7 +51,7 @@ function ProductSimple() {
         gap: 100px;
         padding-inline: 3rem;
         margin-top: 3rem;
-        margin-button: 3rem;
+        margin-bottom: 3rem;
     `;
 
     const ProductImage = styled.img`
@@ -55,49 +69,43 @@ function ProductSimple() {
     `;
 
     return (
-        <>
-            {/* <h1>
-                Product {productname}
-            </h1> */}
-            <ProductWrapper>
-                <ProductImage src="../public/food-bk.jpg" />
-                <ProductInfo>
-                    <Heading>
-                        {infoData.productName + " - " + infoData.enterpriseUser}
-                    </Heading>
-                    <Text>
-                        <LocationIcon/>
-                        {infoData.direction}
-                    </Text>
-                    <Text>
-                        {infoData.description}
-                    </Text>
-                    <Select.Root defaultValue="Cantidad">
-                        <Select.Trigger />
-                        <Select.Content>
-                            <Select.Group>
-                                <Select.Label>Cantidad</Select.Label>
-                                {numbers.map((i) => (
-                                    <Select.Item
-                                        key={i}
-                                        value={i}>
-                                        {i}
-                                    </Select.Item>
-                                ))}
-                            </Select.Group>
-                        </Select.Content>
-                    </Select.Root>
-                    <Text>
-                        {infoData.price}
-                    </Text>
-                    <Button>
-                        Agregar al carrito
-                    </Button>
-
-
-                </ProductInfo>
-            </ProductWrapper>
-        </>
-    )
+        <ProductWrapper>
+            <ProductImage src={product.imgUrl} alt={product.productName} />
+            <ProductInfo>
+                <Heading>
+                    {product.productName + " - " + product.enterpriseUser}
+                </Heading>
+                <Text>
+                    <LocationIcon />
+                    {product.direction}
+                </Text>
+                <Text>
+                    {product.description}
+                </Text>
+                <Select.Root defaultValue="Cantidad">
+                    <Select.Trigger />
+                    <Select.Content>
+                        <Select.Group>
+                            <Select.Label>Cantidad</Select.Label>
+                            {numbers.map((i) => (
+                                <Select.Item key={i} value={i}>
+                                    {i}
+                                </Select.Item>
+                            ))}
+                        </Select.Group>
+                    </Select.Content>
+                </Select.Root>
+                <Text>
+                    {product.price}
+                </Text>
+                <Button>
+                    Agregar al carrito
+                </Button>
+            </ProductInfo>
+        </ProductWrapper>
+    );
 }
+
 export default ProductSimple;
+
+
