@@ -60,6 +60,11 @@ function Home() {
         margin-top: 10px;
         margin-bottom: 20px;
     `
+    const ParagraphTitle = styles.div`
+    width: fit-content;
+    margin-top: 10px;
+    margin-bottom: 20px;
+`
 
     const HowUse = styles.div`
         width: 100%;
@@ -106,9 +111,9 @@ function Home() {
                     <SecondaryTitle>
                         ¡Únete a la revolución de la reducción de desperdicio de alimentos!
                     </SecondaryTitle>
-                    <Paragraph>
+                    <ParagraphTitle>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga totam nesciunt reiciendis odio amet est animi quasi illum fugiat, ratione quod, labore quisquam. A culpa porro pariatur delectus, quam reiciendis illo officiis dolor aliquid commodi necessitatibus! Numquam corrupti repellendus distinctio facilis unde labore quisquam dolores sequi odio cupiditate! Sequi, veniam.
-                    </Paragraph>
+                    </ParagraphTitle>
                     <Button>
                         Empieza ahora
                     </Button>
@@ -119,6 +124,8 @@ function Home() {
                 style={{ color: "#0f0f0f" }}>
                     ¿Cómo funciona?
                 </Title>
+                <Paragraph>
+                Es una plataforma innovadora diseñada para reducir el desperdicio de alimentos en los restaurantes, ofreciendo comidas a precios reducidos. La idea es simple: los restaurantes pueden listar sus comidas excedentes o próximas a caducar en la plataforma, permitiendo a los usuarios comprar estos alimentos a un costo menor. Esto no solo ayuda a los restaurantes a minimizar pérdidas, sino que también ofrece a los consumidores la oportunidad de disfrutar de comidas deliciosas a precios accesibles. Además, promueve la sostenibilidad y el aprovechamiento responsable de los recursos alimenticios.</Paragraph>
                 <Image src='../public/'>
 
                 </Image>
